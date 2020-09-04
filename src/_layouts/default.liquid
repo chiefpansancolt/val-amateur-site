@@ -1,15 +1,12 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    {% render "head", metadata: site.metadata, title: page.title %}
-  </head>
-  <body class="{{ page.layout }} {{ page.page_class }}">
-    {% render "navbar", metadata: site.metadata, page: page %}
+    <head>
+        {% render "shared/head", metadata: site.metadata, title: page.title %}
+    </head>
+    <body class="{{ page.layout }} {{ page.page_class }}" data-controller="toggle">
 
-    <main>
-      {{ content }}
-    </main>
+        {{ content }}
 
-    {% render "footer", metadata: site.metadata %}
-  </body>
+        {% render "shared/footer", metadata: site.metadata, column_one: site.data.navigation.footer.one, column_two: site.data.navigation.footer.two, column_three: site.data.navigation.footer.three, column_four: site.data.navigation.footer.four %}
+    </body>
 </html>
