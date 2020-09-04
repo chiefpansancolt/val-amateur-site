@@ -1,3 +1,3 @@
-import "../styles/index.scss"
+import 'bridgetown-quick-search'
 
-console.info("Bridgetown is loaded!")
+import '../styles/index.scss'
