@@ -2,22 +2,39 @@
 layout: default
 ---
 
-<div class="relative bg-white overflow-hidden">
-    <div class="max-w-screen-xl mx-auto">
-        <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-            <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <polygon points="50,0 100,0 50,100 0,100" />
-            </svg>
+<div class="bg-gray-50">
+    <div class="relative overflow-hidden" data-controller="toggle">
+        <div class="block absolute inset-y-0 h-full w-full">
+            <div class="relative h-full">
+                <svg class="absolute right-full transform translate-y-1/3 translate-x-1/4 md:translate-y-1/2 sm:translate-x-1/2 lg:translate-x-full" width="404" height="784" fill="none" viewBox="0 0 404 784">
+                    <defs>
+                        <pattern id="e229dbec-10e9-49ee-8ec3-0286ca089edf" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                        </pattern>
+                    </defs>
+                    <rect width="404" height="784" fill="url(#ad9a0a02-b58e-4a1d-8c36-1b649889af63)" />
+                </svg>
+                <svg class="absolute left-full transform -translate-y-3/4 -translate-x-1/4 sm:-translate-x-1/2 md:-translate-y-1/2 lg:-translate-x-3/4" width="404" height="784" fill="none" viewBox="0 0 404 784">
+                    <defs>
+                        <pattern id="d2a68204-c383-44b1-b99f-42ccff4e5365" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor" />
+                        </pattern>
+                    </defs>
+                    <rect width="404" height="784" fill="url(#478e97d6-90df-4a89-8d63-30fdbb3c7e57)" />
+                </svg>
+            </div>
+        </div>
 
-            <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
-                <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start">
-                    <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+        <div class="relative pt-6 pb-12 lg:pb-20">
+            <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
+                <nav class="relative flex items-center justify-between sm:h-10 md:justify-center">
+                    <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
                         <div class="flex items-center justify-between w-full md:w-auto">
                             <a href="#" aria-label="Home">
-                                <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg" alt="Logo">
+                                <img class="h-10 w-auto" src="{{ '/assets/images/logo/Logo.png' }}" alt="Logo">
                             </a>
                             <div class="-mr-2 flex items-center md:hidden">
-                                <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" id="main-menu" aria-label="Main menu" aria-haspopup="true">
+                                <button data-action="click->toggle#toggle touch->toggle#toggle" data-toggle-target="mobile-menu" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" id="main-menu" aria-label="Main menu" aria-haspopup="true">
                                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                                     </svg>
@@ -25,25 +42,24 @@ layout: default
                             </div>
                         </div>
                     </div>
-                    <div class="hidden md:block md:ml-10 md:pr-4">
+                    <div class="hidden md:flex md:space-x-10">
                         <a href="/" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Home</a>
-                        <a href="/about/" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">About</a>
-                        <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Tournament</a>
-                        <a href="#" class="ml-8 font-medium text-red-600 hover:text-red-900 transition duration-150 ease-in-out">Join</a>
+                        <a href="/about/" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">About</a>
+                        <a href="#" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Play</a>
+                        <a href="/faq/" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">FAQ</a>
                     </div>
                 </nav>
             </div>
 
-            <!-- Mobile menu -->
-            <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+            <div data-toggle-name="mobile-menu" class="hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-50">
                 <div class="rounded-lg shadow-md">
                     <div class="rounded-lg bg-white shadow-xs overflow-hidden" role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
                         <div class="px-5 pt-4 flex items-center justify-between">
                             <div>
-                                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-on-white.svg" alt="">
+                                <img class="h-10 w-auto" src="{{ '/assets/images/logo/Logo.png' }}" alt="">
                             </div>
                             <div class="-mr-2">
-                                <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Close menu">
+                                <button data-action="click->toggle#toggle touch->toggle#toggle" data-toggle-target="mobile-menu" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Close menu">
                                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
@@ -51,49 +67,44 @@ layout: default
                             </div>
                         </div>
                         <div class="px-2 pt-2 pb-3">
-                            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Product</a>
-                            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Features</a>
-                            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Marketplace</a>
-                            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Company</a>
-                        </div>
-                        <div>
-                            <a href="#" class="block w-full px-5 py-3 text-center font-medium text-red-600 bg-gray-50 hover:bg-gray-100 hover:text-red-700 focus:outline-none focus:bg-gray-100 focus:text-red-700 transition duration-150 ease-in-out" role="menuitem">
-                                Log in
-                            </a>
+                            <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Home</a>
+                            <a href="/about/" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">About</a>
+                            <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Play</a>
+                            <a href="/faq/" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">FAQ</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <main class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                <div class="sm:text-center lg:text-left">
+            <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:px-6 md:mt-16 lg:mt-20">
+                <div class="text-center">
                     <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
-                        Valorant
-                        <br class="xl:hidden">
-                        <span class="text-red-600">Amateur Series</span>
+                        <span class="text-secondary">Amature</span>
+                        <span class="text-primary">Valorant</span>
+                        <span class="text-secondary">Series</span>
                     </h2>
-                    <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
-                    </p>
-                    <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                        <div class="rounded-md shadow">
-                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-                                Join
-                            </a>
-                        </div>
-                        <div class="mt-3 sm:mt-0 sm:ml-3">
-                            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-red-700 bg-red-100 hover:text-red-600 hover:bg-red-50 focus:outline-none focus:shadow-outline-red focus:border-red-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-                                Tournaments
-                            </a>
-                        </div>
-                    </div>
                 </div>
-            </main>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="absolute inset-0 flex flex-col">
+                <div class="flex-1"></div>
+                <div class="flex-1 w-full bg-secondary"></div>
+            </div>
+            <div class="max-w-screen-xl mx-auto">
+                <img class="relative rounded-lg shadow-lg" src="{{ 'assets/images/AVS_Poster.png' }}" alt="App screenshot"/>
+            </div>
         </div>
     </div>
-    
-    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="{{ 'assets/images/AVS_Poster.png' }}" alt="AVS Poster">
+    <div class="bg-secondary">
+        <div class="max-w-screen-xl mx-auto pt-16 pb-20 px-4 sm:px-6 md:pb-24 lg:px-8">
+            <h3 class="text-center text-gray-400 text-sm font-semibold uppercase tracking-wide">What to play register at Battlefy!</h3>
+            <div class="mt-8 text-center">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-secondary bg-primary transition ease-in-out duration-150">
+                    Registar Now!
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -13,6 +13,22 @@ main {
   flex: 1;
 }
 
+.text-primary {
+  color: #FF4555;
+}
+
+.bg-primary {
+  background-color: #FF4555;
+}
+
+.text-secondary {
+  color: #0F1923;
+}
+
+.bg-secondary {
+  background-color: #0F1923;
+}
+
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import url("https://rsms.me/inter/inter.css");
